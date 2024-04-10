@@ -1,0 +1,10 @@
+{
+  "name": "EPA UV Index",
+  "short_name": "UV",
+  "theme_color": "#0e6cb6",
+  "background_color": "#62c342",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
