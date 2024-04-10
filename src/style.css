@@ -1,0 +1,16 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+html {
+  background-color: #eee8;
+}
+body,
+#root {
+  max-height: 100vh;
+}
+
+button {
+  position: relative;
+}

@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,KAEE,gBACF,CAEA,KACE,mDACF,CACA,WAEE,gBACF,CAEA,OACE,iBACF","file":"main.d620cb52.chunk.css","sourcesContent":["h1,\np {\n  font-family: Lato;\n}\n\nhtml {\n  background-color: #eee8;\n}\nbody,\n#root {\n  max-height: 100vh;\n}\n\nbutton {\n  position: relative;\n}\n"]}
