@@ -175,6 +175,24 @@ const LineChart = () => {
     };
   }, []);
 
+  const setFormatDataValues = (jsonData) => {
+    setValues(
+      jsonData
+        ?.filter(
+          (x, i) =>
+            x.UV_VALUE != 0 ||
+            jsonData[i - 1]?.UV_VALUE > 0 ||
+            jsonData[i + 1]?.UV_VALUE > 0
+        )
+        .map((x) => [
+          new Date(
+            x.DATE_TIME.replace(/ AM/, ':00 am').replace(/ PM/, ':00 pm')
+          ).getHours(),
+          x.UV_VALUE,
+        ])
+    );
+  };
+
   const getXY = () => {
     const error = (error) => console.error(error.message);
     navigator.geolocation.getCurrentPosition(useXY, error);
@@ -188,16 +206,7 @@ const LineChart = () => {
       );
       const jsonData = await response.json();
       console.log(jsonData);
-      setValues(
-        jsonData
-          ?.filter((x) => x.UV_VALUE != 0)
-          .map((x) => [
-            new Date(
-              x.DATE_TIME.replace(/ AM/, ':00 am').replace(/ PM/, ':00 pm')
-            ).getHours(),
-            x.UV_VALUE,
-          ])
-      );
+      setFormatDataValues(jsonData);
       console.log(jsonData);
       console.log(values);
       const [city, state] = [jsonData[0].CITY, jsonData[0].STATE];
@@ -218,16 +227,7 @@ const LineChart = () => {
           `https://data.epa.gov/efservice/getEnvirofactsUVHourly/ZIP/${zipcode}/JSON`
         );
         const jsonData = await response.json();
-        setValues(
-          jsonData
-            ?.filter((x) => x.UV_VALUE != 0)
-            .map((x) => [
-              new Date(
-                x.DATE_TIME.replace(/ AM/, ':00 am').replace(/ PM/, ':00 pm')
-              ).getHours(),
-              x.UV_VALUE,
-            ])
-        );
+        setFormatDataValues(jsonData);
         console.log(jsonData);
         console.log(values);
         const [city, state] = [jsonData[0].CITY, jsonData[0].STATE];
@@ -250,16 +250,7 @@ const LineChart = () => {
           `https://data.epa.gov/efservice/getEnvirofactsUVHourly/CITY/${splitCity[0].trim()}/STATE/${splitCity[1].trim()}/JSON`
         );
         const jsonData = await response.json();
-        setValues(
-          jsonData
-            ?.filter((x) => x.UV_VALUE != 0)
-            .map((x) => [
-              new Date(
-                x.DATE_TIME.replace(/ AM/, ':00 am').replace(/ PM/, ':00 pm')
-              ).getHours(),
-              x.UV_VALUE,
-            ])
-        );
+        setFormatDataValues(jsonData);
         console.log(jsonData);
         console.log(values);
         const [city, state] = [jsonData[0].CITY, jsonData[0].STATE];
