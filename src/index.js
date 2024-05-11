@@ -622,7 +622,7 @@ const LineChart = () => {
           </label>
           <button
             onClick={(e) => {
-              useXY();
+              // useXY();
               getXY();
               getValues(apiDate);
               e.preventDefault();
