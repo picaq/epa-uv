@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "60ce9f8ee29135ef7114634acbe948fc",
+    "revision": "eba0b8796b4909c38f4281cbf95e7bae",
     "url": "/epa-uv/index.html"
   },
   {
-    "revision": "f0200d847215e1f6a010",
+    "revision": "c01b0c22b58f1e4590b8",
     "url": "/epa-uv/static/css/main.d620cb52.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/epa-uv/static/js/2.6660f9d5.chunk.js"
   },
   {
-    "revision": "f0200d847215e1f6a010",
-    "url": "/epa-uv/static/js/main.fe1bc651.chunk.js"
+    "revision": "c01b0c22b58f1e4590b8",
+    "url": "/epa-uv/static/js/main.d6e4f299.chunk.js"
   },
   {
     "revision": "ad926e86da384d284ca6",
