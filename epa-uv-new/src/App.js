@@ -423,6 +423,9 @@ const LineChart = () => {
         },
         zones: colors,
         shadow: false,
+        events: {
+          legendItemClick: () => false
+        }
       },
     ],
     credits: {
