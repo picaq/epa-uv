@@ -422,7 +422,7 @@ const LineChart = () => {
           },
         },
         zones: colors,
-        shadow: true,
+        shadow: false,
       },
     ],
     credits: {
