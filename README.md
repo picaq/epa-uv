@@ -15,3 +15,10 @@ Or the development build on stackblitz (slow but prettier): https://react-numuay
 
 Update: 5/10/2024: added leading zeros to UV data
 ![image](https://github.com/picaq/epa-uv/assets/34908590/f2e751fe-2bf1-45a0-a3ce-34f7777e13df)
+
+### Todo:
+- [ ] remove clickable / pointer finger mouse hover from legend toggle
+- [ ] installablee pwa with offline local storage
+- [ ] general bug fixes
+- [ ] remove unused declarations
+- [ ] info button and link back to repository
