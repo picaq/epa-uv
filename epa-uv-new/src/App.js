@@ -570,7 +570,7 @@ const LineChart = () => {
           }}
         >
           <label htmlFor="zipcode">
-            Zipcode:
+            Zipcode:&#8239;
             <input
               style={{ width: '4em' }}
               type="tel"
@@ -586,7 +586,7 @@ const LineChart = () => {
             />
           </label>
           <label htmlFor="city">
-            City, State:
+            City, State:&#8239;
             <input
               style={{ width: '10em' }}
               type="text"

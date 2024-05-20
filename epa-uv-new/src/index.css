@@ -20,3 +20,11 @@ button {
 .highcharts-series {
   filter: drop-shadow( 1pt 2pt 1pt #1026);
 }
+
+.highcharts-legend text {
+  cursor: auto !important;
+}
+
+button:not(:disabled) {
+  cursor: pointer
+}
