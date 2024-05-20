@@ -1,7 +1,6 @@
 import './App.css';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { render } from 'react-dom';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
@@ -164,7 +163,7 @@ const LineChart = () => {
 
   const updateTitle = (values) => {
     const value = Object.fromEntries(values)[hour] || '0';
-    document.title = `🌻 UV Index: ${boldNums[value]} ${exposure[value]}`;
+    document.title = `UV Index: ${boldNums[value]} ${exposure[value]}`;
     console.log({ values });
   };
 
@@ -454,9 +453,6 @@ const LineChart = () => {
       borderRadius: 22,
     },
     xAxis: {
-      // categories: values.map((x) =>
-      //   x[0].slice(5).replace(/^0/, '').replace(/\s/, ' ').toLowerCase()
-      // ),
       gridLineWidth: 1,
       gridZIndex: 0,
       plotLines: [
