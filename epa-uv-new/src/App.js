@@ -215,7 +215,7 @@ const LineChart = () => {
         0.5 + zipcode.length / 10
       }; fill: ${error && '#e82a0eaa'}; font-style: ${
         error && 'italic'
-      }">${zipcode}</span><span> ${cityName}</span>`,
+      }">${zipcode} </span>${zipcode.length === 5 ? "in" : ""}<span> ${cityName}</span>`,
     },
     subtitle: {
       text: `
