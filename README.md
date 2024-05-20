@@ -11,10 +11,10 @@ Or the development build on stackblitz (slow but prettier): https://react-numuay
 
 [Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/picaq/epa-uv)
 
-![image](https://github.com/picaq/epa-uv/assets/34908590/46d130f2-6739-4881-82c7-f08ba3b46387)
+<img src="https://github.com/picaq/epa-uv/assets/34908590/46d130f2-6739-4881-82c7-f08ba3b46387" width=268 align=right>
+<img src="https://github.com/picaq/epa-uv/assets/34908590/f2e751fe-2bf1-45a0-a3ce-34f7777e13df" width=268 align=right>
 
 Update: 5/10/2024: added leading zeros to UV data
-![image](https://github.com/picaq/epa-uv/assets/34908590/f2e751fe-2bf1-45a0-a3ce-34f7777e13df)
 
 ### Todo:
 - [x] remove clickable / pointer finger mouse hover from legend toggle
