@@ -11,34 +11,15 @@ const LineChart = () => {
     window.location.href.match(/\d{5}/) &&
     window.location.href.match(/\d{5}/)[0];
 
-  const [postalCode, setPostalCode] = useState(paramZip || '95377');
-
   const [zipcode, setZipcode] = useState(paramZip || '94108');
   const [userCity, setUserCity] = useState('San Francisco, CA');
   const [values, setValues] = useState([]);
   const [error, setError] = useState(false);
   const [cityError, setCityError] = useState(false);
   const today = new Date(new Date().toLocaleDateString());
-  const tomorrow = new Date(
-    new Date().setDate(new Date().getDate() + 1)
-  ).toLocaleDateString();
-  const yesterday = new Date(
-    new Date().setDate(new Date().getDate() - 1)
-  ).toLocaleDateString();
   const time = new Date(new Date().toLocaleString());
   const [hour, setHour] = useState(time.getHours());
   const [minutes, setMinutes] = useState(time.getMinutes());
-  const todayString = today.toISOString().slice(0, 10);
-  const todayAPI = todayString.replace(/-/g, '');
-  const yesterdayAPI = new Date(yesterday)
-    .toISOString()
-    .slice(0, 10)
-    .replace(/-/g, '');
-  const tomorrowAPI = new Date(tomorrow)
-    .toISOString()
-    .slice(0, 10)
-    .replace(/-/g, '');
-  const [apiDate, setApiDate] = useState(todayAPI);
   // const [isFetched, setIsFetched] = useState(false);
   const [cityName, setCityName] = useState('city, state');
   const [dataDate, setDataDate] = useState(today);
@@ -221,7 +202,7 @@ const LineChart = () => {
     }
   };
 
-  const getValues = async (apiDate = todayAPI) => {
+  const getValues = async () => {
     if (zipcode.length === 5) {
       try {
         const response = await fetch(
@@ -272,7 +253,6 @@ const LineChart = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      let date = new Date();
       setMinutes(new Date(new Date().toLocaleString()).getMinutes());
       setHour(new Date(new Date().toLocaleString()).getHours());
     }, 20000);
@@ -298,7 +278,7 @@ const LineChart = () => {
   }, [hour, values, zipcode]);
 
   useMemo(() => {
-    getValues(apiDate);
+    getValues();
   }, [zipcode]);
 
   const zeroPad = (num, places) => String(num).padStart(places, '0');
@@ -378,10 +358,6 @@ const LineChart = () => {
     },
   ];
 
-  const changeDate = (api) => {
-    setApiDate(api);
-    getValues(api);
-  };
   const chartOptions = {
     style: {
       color: '#ddd',
@@ -431,7 +407,6 @@ const LineChart = () => {
       enabled: false,
     },
     tooltip: {
-      crosshairs: true,
       crosshairs: {
         snap: false,
         zIndex: 1,
@@ -524,17 +499,6 @@ const LineChart = () => {
         },
       },
     },
-    // plotOptions: {
-    //   series: {
-    //     point: {
-    //       events: {
-    //         mouseOver(e) {
-    //           setHoverData(e.target.category);
-    //         },
-    //       },
-    //     },
-    //   },
-    // },
   };
 
   return (
@@ -576,11 +540,12 @@ const LineChart = () => {
               type="tel"
               pattern="^\d*$"
               name="zipcode"
+              placeholder="12345"
               value={zipcode}
               maxLength="5"
               ref={inputRef}
               onChange={(e) => {
-                zipcode.length === 5 && getValues(apiDate);
+                zipcode.length === 5 && getValues();
                 setZipcode(e.target.value.replace(/\D/, '').slice(0, 5));
               }}
             />
@@ -592,22 +557,24 @@ const LineChart = () => {
               type="text"
               pattern="^[a-z], *[A-Z]{2}*$"
               name="city"
+              placeholder="Washington, DC"
               value={userCity}
               ref={inputRefCity}
               onChange={(e) => {
                 setUserCity(e.target.value.replace(/\d/, ''));
                 userCity.length > 3 &&
-                  userCity?.split(/\, */)[1]?.length === 2 &&
+                  userCity?.split(/, */)[1]?.length === 2 &&
                   getCityValues();
               }}
             />
             <button
               style={{ marginRight: '1em', lineHeight: 1.2, opacity: 0.7 }}
+              title={ userCity?.split(/, */)[1]?.length !== 2 ? "city must be followed by a comma and 2 letter state code" : "Search for city" }
               onClick={(e) => {
                 getCityValues();
                 e.preventDefault();
               }}
-              disabled={userCity?.split(/\, */)[1]?.length !== 2}
+              disabled={userCity?.split(/, */)[1]?.length !== 2}
             >
               🔍
             </button>
@@ -625,7 +592,7 @@ const LineChart = () => {
             onClick={(e) => {
               // useXY();
               getXY();
-              getValues(apiDate);
+              getValues();
               e.preventDefault();
               // console.log(x, y, 'aaaaa');
             }}
