@@ -1,5 +1,5 @@
 import './App.css';
-
+import { Constants } from './Constants';
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
@@ -38,101 +38,6 @@ const LineChart = () => {
     setCityError(false);
   };
 
-  const exposure = [
-    'low',
-    'low',
-    'low',
-    'moderate',
-    'moderate',
-    'moderate',
-    'high',
-    'high',
-    'very high',
-    'very high',
-    'very high',
-    'extreme',
-    'extreme',
-    'extreme',
-    'extreme',
-    'extreme',
-  ];
-
-  const emojiNums = [
-    '0️⃣',
-    '1️⃣',
-    '2️⃣',
-    '3️⃣',
-    '4️⃣',
-    '5️⃣',
-    '6️⃣',
-    '7️⃣',
-    '8️⃣',
-    '9️⃣',
-    '🔟',
-    '1️⃣1️⃣',
-    '1️⃣2️⃣',
-    '1️⃣3️⃣',
-    '1️⃣4️⃣',
-    '1️⃣5️⃣',
-  ];
-
-  const boldNums = [
-    '𝟎',
-    '𝟏',
-    '𝟐',
-    '𝟑',
-    '𝟒',
-    '𝟓',
-    '𝟔',
-    '𝟕',
-    '𝟖',
-    '𝟗',
-    '𝟏𝟎',
-    '𝟏𝟏',
-    '𝟏𝟐',
-    '𝟏𝟑',
-    '𝟏𝟒',
-    '𝟏𝟓',
-  ];
-
-  const doubleNums = [
-    '𝟘',
-    '𝟙',
-    '𝟚',
-    '𝟛',
-    '𝟜',
-    '𝟝',
-    '𝟞',
-    '𝟟',
-    '𝟠',
-    '𝟡',
-    '𝟘',
-    '𝟙𝟙',
-    '𝟙𝟚',
-    '𝟙𝟛',
-    '𝟙𝟜',
-    '𝟙𝟝',
-  ];
-
-  const sansNums = [
-    '𝟢',
-    '𝟣',
-    '𝟤',
-    '𝟥',
-    '𝟦',
-    '𝟧',
-    '𝟨',
-    '𝟩',
-    '𝟪',
-    '𝟫',
-    '𝟣𝟢',
-    '𝟣𝟣',
-    '𝟣𝟤',
-    '𝟣𝟥',
-    '𝟣𝟦',
-    '𝟣𝟧',
-  ];
-
   const dateOptions = {
     weekday: 'long',
     year: 'numeric',
@@ -140,11 +45,11 @@ const LineChart = () => {
     day: 'numeric',
   };
 
-  const getExposure = (index) => exposure[index];
+  // const getExposure = (index) => Constants.exposure[index];
 
   const updateTitle = (values) => {
     const value = Object.fromEntries(values)[hour] || '0';
-    document.title = `UV Index: ${boldNums[value]} ${exposure[value]}`;
+    document.title = `UV Index: ${Constants.boldNums[value]} ${Constants.exposure[value]}`;
     console.log({ values });
   };
 
@@ -296,68 +201,6 @@ const LineChart = () => {
     }
   };
 
-  const colors = [
-    {
-      value: 1,
-      color: '#4eb600',
-    },
-    {
-      value: 2,
-      color: '#4eb600',
-    },
-    {
-      value: 3,
-      color: '#99cc02',
-    },
-    {
-      value: 4,
-      color: '#f8e200',
-    },
-    {
-      value: 5,
-      color: '#f7b501ff',
-    },
-    {
-      value: 6,
-      color: '#f88600ee',
-    },
-    {
-      value: 7,
-      color: '#f95900cc',
-    },
-    {
-      value: 8,
-      color: '#e82a0eaa',
-    },
-    {
-      value: 9,
-      color: '#d7031a99',
-    },
-    {
-      value: 10,
-      color: '#ff029888',
-    },
-    {
-      value: 11,
-      color: '#b449ff',
-    },
-    {
-      value: 12,
-      color: '#9a8aff',
-    },
-    {
-      value: 13,
-      color: '#9a8aff',
-    },
-    {
-      value: 14,
-      color: '#9a8aff',
-    },
-    {
-      color: '#9a8aff',
-    },
-  ];
-
   const chartOptions = {
     style: {
       color: '#ddd',
@@ -396,7 +239,7 @@ const LineChart = () => {
             fontSize: '1rem',
           },
         },
-        zones: colors,
+        zones: Constants.colors,
         shadow: false,
         events: {
           legendItemClick: () => false
@@ -419,7 +262,7 @@ const LineChart = () => {
             '<br/>' +
             point.y +
             ': <strong>' +
-            exposure[point.y] +
+            Constants.exposure[point.y] +
             '</strong>'
           );
         }, formatTime(this.x));
@@ -443,7 +286,7 @@ const LineChart = () => {
               .toLocaleTimeString()
               .replace(/:00 AM/, ' am')
               .replace(/:00 PM/, ' pm')}, <strong>${
-              exposure[
+              Constants.exposure[
                 {
                   ...values.filter(
                     (x) => x[0] === Math.round(hour + minutes / 60)
