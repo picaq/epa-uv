@@ -148,7 +148,7 @@ const LineChart = () => {
       } catch (error) {
         console.error(error.message);
         console.error(userCity, 'is not found!');
-        setError(true);
+        setCityError(true);
       }
     }
   };
@@ -213,7 +213,7 @@ const LineChart = () => {
     title: {
       text: `UV Index for <span style="opacity: ${
         0.5 + zipcode.length / 10
-      }; fill: ${error && '#e82a0eaa'}; font-style: ${
+      }; fill: ${error && Constants.colors[7].color}; font-style: ${
         error && 'italic'
       }">${zipcode} </span>${zipcode.length === 5 ? "in" : ""}<span> ${cityName}</span>`,
     },
@@ -379,7 +379,7 @@ const LineChart = () => {
           <label htmlFor="zipcode">
             Zipcode:&#8239;
             <input
-              style={{ width: '4em' }}
+              style={{ width: '4em', color: error ? Constants.colors[7].color : "inherit" }}
               type="tel"
               pattern="^\d*$"
               name="zipcode"
@@ -388,6 +388,7 @@ const LineChart = () => {
               maxLength="5"
               ref={inputRef}
               onChange={(e) => {
+                setError(false);
                 zipcode.length === 5 && getValues();
                 setZipcode(e.target.value.replace(/\D/, '').slice(0, 5));
               }}
@@ -396,14 +397,15 @@ const LineChart = () => {
           <label htmlFor="city">
             City, State:&#8239;
             <input
-              style={{ width: '10em' }}
+              style={{ width: '10em', color: cityError ? Constants.colors[7].color : "inherit" }}
               type="text"
               pattern="^[a-z], *[A-Z]{2}*$"
               name="city"
-              placeholder="Washington, DC"
+              placeholder="Seattle, WA"
               value={userCity}
               ref={inputRefCity}
               onChange={(e) => {
+                setCityError(false);
                 setUserCity(e.target.value.replace(/\d/, ''));
                 userCity.length > 3 &&
                   userCity?.split(/, */)[1]?.length === 2 &&
