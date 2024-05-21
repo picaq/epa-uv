@@ -20,7 +20,7 @@ Update: 5/10/2024: added leading zeros to UV data
 - [x] remove clickable / pointer finger mouse hover from legend toggle
 - [ ] installable pwa with offline local storage
 - [ ] general bug fixes
-- [ ] remove unused declarations
+- [x] remove unused declarations
 - [ ] info button and link back to repository
 - [ ] cache API calls
 - [ ] move forward and back to see different graphs
