@@ -1,4 +1,5 @@
-# epa-uv
+# UV Index Chart
+[picaq](https://github.com/picaq) / [epa-uv](https://github.com/picaq/epa-uv)
 
 View the production build on github pages (faster): https://picaq.github.io/epa-uv/<br>
 Or the development build on stackblitz (slow but prettier): https://react-numuay.stackblitz.io/ 
