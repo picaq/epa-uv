@@ -20,9 +20,9 @@ Update: 5/10/2024: added leading zeros to UV data
 ### Todo:
 - [x] remove clickable / pointer finger mouse hover from legend toggle
 - [x] installable pwa with offline local storage
-  - [ ] replcace react icons with favicon sunflowers
-  - [ ] match index.html theme color with manifest
-  - [ ] match manifest bg color with app bg color
+  - [x] replcace react icons with favicon sunflowers
+  - [x] match index.html theme color with manifest
+  - [x] match manifest bg color with app bg color
 - [ ] general bug fixes
 - [x] remove unused declarations
 - [ ] info button and link back to repository

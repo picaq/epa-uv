@@ -50,6 +50,7 @@ const LineChart = () => {
   const updateTitle = (values) => {
     const value = Object.fromEntries(values)[hour] || '0';
     document.title = `UV Index: ${Constants.boldNums[value]} ${Constants.exposure[value]}`;
+    document.querySelector('[name="theme-color"]').content = Constants.colors[value].color;
     console.log({ values });
   };
 
