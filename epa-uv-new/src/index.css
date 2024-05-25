@@ -28,3 +28,8 @@ button {
 button:not(:disabled) {
   cursor: pointer
 }
+
+label + button {
+  max-width: min-content;
+  padding: .25em .5em;
+}
