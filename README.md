@@ -26,5 +26,7 @@ Update: 5/10/2024: added leading zeros to UV data
 - [ ] general bug fixes
 - [x] remove unused declarations
 - [ ] info button and link back to repository
+- [ ] include SEO keywords and validate html
+- [ ] add social media and search engine preview pics and description
 - [ ] cache API calls
 - [ ] move forward and back to see different graphs
