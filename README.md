@@ -29,4 +29,5 @@ Update: 5/10/2024: added leading zeros to UV data
 - [ ] include SEO keywords and validate html
 - [ ] add social media and search engine preview pics and description
 - [ ] cache API calls into local storage
+- [ ] persist UV Index value notification for mobile apps
 - [ ] move forward and back to see different graphs
