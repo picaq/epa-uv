@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/epa-uv/static/css/main.0eab0d30.css",
-    "main.js": "/epa-uv/static/js/main.054054c2.js",
+    "main.js": "/epa-uv/static/js/main.b5c5086a.js",
     "static/js/453.edda05fc.chunk.js": "/epa-uv/static/js/453.edda05fc.chunk.js",
     "service-worker.js": "/epa-uv/service-worker.js",
-    "static/media/README": "/epa-uv/static/media/README.7b47b7c6fa9dd8f70fec",
+    "static/media/README": "/epa-uv/static/media/README.7fe911e04a5753c57004",
     "index.html": "/epa-uv/index.html",
     "main.0eab0d30.css.map": "/epa-uv/static/css/main.0eab0d30.css.map",
-    "main.054054c2.js.map": "/epa-uv/static/js/main.054054c2.js.map",
+    "main.b5c5086a.js.map": "/epa-uv/static/js/main.b5c5086a.js.map",
     "453.edda05fc.chunk.js.map": "/epa-uv/static/js/453.edda05fc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0eab0d30.css",
-    "static/js/main.054054c2.js"
+    "static/js/main.b5c5086a.js"
   ]
 }
