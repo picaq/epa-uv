@@ -3,6 +3,8 @@ import { Constants } from './Constants';
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
+import Markdown from 'react-markdown';
+import file from './README'
 
 let x, y;
 
@@ -345,8 +347,33 @@ const LineChart = () => {
     },
   };
 
+
+  
+  const [markdown, setMarkdown] = useState("");
+  const [showMarkdown, setShowMarkdown] = useState(false);
+
+  useEffect(() => {
+    fetch(file)
+      .then((res) => res.text())
+      .then((text) => setMarkdown(text));
+  }, []);
+
   return (
+    
     <div>
+      <button 
+        id="markdown-button"
+        title="Readme info"
+        onClick={()=> setShowMarkdown(!showMarkdown)}
+      >
+        <i>{showMarkdown ? 'x' : 'i'}</i>
+      </button>
+      
+      { showMarkdown && 
+        <section id="markdown">
+          <Markdown children={markdown} />
+        </section>
+      }
       <HighchartsReact
         containerProps={{
           style: {
