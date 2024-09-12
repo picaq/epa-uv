@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/epa-uv/static/css/main.f17aae6b.css",
-    "main.js": "/epa-uv/static/js/main.5d359124.js",
+    "main.css": "/epa-uv/static/css/main.0eab0d30.css",
+    "main.js": "/epa-uv/static/js/main.054054c2.js",
     "static/js/453.edda05fc.chunk.js": "/epa-uv/static/js/453.edda05fc.chunk.js",
     "service-worker.js": "/epa-uv/service-worker.js",
+    "static/media/README": "/epa-uv/static/media/README.7b47b7c6fa9dd8f70fec",
     "index.html": "/epa-uv/index.html",
-    "main.f17aae6b.css.map": "/epa-uv/static/css/main.f17aae6b.css.map",
-    "main.5d359124.js.map": "/epa-uv/static/js/main.5d359124.js.map",
+    "main.0eab0d30.css.map": "/epa-uv/static/css/main.0eab0d30.css.map",
+    "main.054054c2.js.map": "/epa-uv/static/js/main.054054c2.js.map",
     "453.edda05fc.chunk.js.map": "/epa-uv/static/js/453.edda05fc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f17aae6b.css",
-    "static/js/main.5d359124.js"
+    "static/css/main.0eab0d30.css",
+    "static/js/main.054054c2.js"
   ]
 }
